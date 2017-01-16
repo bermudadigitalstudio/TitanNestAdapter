@@ -24,7 +24,7 @@ final class TitanNestAdapterTests: XCTestCase {
                                 headers: [("Accept", "application/json"), ("Content-Length", "\(body.utf8.count)")],
                                 content: body)
     var titanRequestConvertedFromNest: TitanCore.RequestType!
-    titanInstance.middleware { (request, response) -> (TitanCore.RequestType, TitanCore.ResponseType) in
+    titanInstance.addFunction { (request, response) -> (TitanCore.RequestType, TitanCore.ResponseType) in
       titanRequestConvertedFromNest = request
       return (request, response)
     }
@@ -41,7 +41,7 @@ final class TitanNestAdapterTests: XCTestCase {
   func testConvertingTitanResponseToNestResponse() {
     let titanResponse = TitanCore.Response(501, "Not implemented; developer is exceedingly lazy", headers: [("Cache-Control", "private")])
     let nestResponseConvertedFromTitan: Nest.ResponseType
-    titanInstance.middleware { (request, response) -> (TitanCore.RequestType, TitanCore.ResponseType) in
+    titanInstance.addFunction { (request, response) -> (TitanCore.RequestType, TitanCore.ResponseType) in
       return (request, titanResponse)
     }
     let app = toNestApplication(titanInstance.app)
