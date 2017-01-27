@@ -1,10 +1,10 @@
 import PackageDescription
 
 let package = Package(
-  name: "TitanNestAdapter",
-  dependencies: [
-    .Package(url: "https://github.com/bermudadigitalstudio/TitanCore.git", majorVersion: 0, minor: 2),
-    .Package(url: "https://github.com/nestproject/Nest.git", majorVersion: 0, minor: 4),
-    .Package(url: "https://github.com/nestproject/Inquiline.git", majorVersion: 0, minor: 4)
-  ]
+    name: "TitanNestAdapter",
+    dependencies: [
+        .Package(url: "https://github.com/bermudadigitalstudio/TitanCore.git", majorVersion: 0, minor: 3),
+        .Package(url: "https://github.com/nestproject/Nest.git", majorVersion: 0, minor: 4),
+        .Package(url: "https://github.com/nestproject/Inquiline.git", majorVersion: 0, minor: 4),
+    ]
 )
